@@ -9,6 +9,13 @@
   &-heading {
     background-color: #D2D2D2;
     color: #171717;
+    min-height: rem(30);
+    padding: rem(6) rem(15);
+  }
+
+  &-content {
+    padding: rem(20) rem(15);
+    line-height: 22px;
   }
 }
 

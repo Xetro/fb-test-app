@@ -5,13 +5,27 @@
   color: white;
   font-size: rem(14);
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+  margin-bottom: rem(20);
 
   &-heading {
     background-color: #D2D2D2;
     color: #171717;
+    min-height: rem(30);
+    padding: rem(6) rem(15);
   }
 
-  &-date {
-    color: #999999;
+  &-content {
+    padding: rem(20) rem(15);
+    line-height: 22px;
+
+    &-date {
+      color: #999999;
+    }
+
+    &-more {
+      color: #FF9900;
+      font-size: rem(13);
+    }
   }
+
 }
