@@ -2,13 +2,76 @@
 
 .header {
   background-color: #070707;
-  min-height: rem(70);
   color: white;
   margin-bottom: rem(41);
+  border: solid rem(1) #1D2225;
+
+  & > nav {
+    max-height: rem(70);
+  }
+
+  &-padding {
+    border-right: solid rem(1) #1D2225;
+    padding: rem(15) rem(25);
+  }
+
+  &-logo {
+    position: relative;
+    text-align: center;
+    border-right: solid rem(1) #1D2225;
+
+    &:after {
+      content: "\2122"; //™
+      position: absolute;
+      top: rem(10);
+      left: calc(50% + #{rem(90)});
+      font-size: rem(15);
+      font-weight: 400;
+      color: #686868;
+    }
+  }
 }
 
-.logo {
+.title {
+  display: inline-block;
+  position: relative;
+  font-size: rem(20);
+  line-height: rem(20);
+  font-weight: 600;
+
+  &:after {
+    content: "\2122"; //™
+    position: absolute;
+    top: rem(-3);
+    left: calc(100% + #{rem(1)});
+    font-size: rem(11);
+    font-weight: 400;
+    color: #4A4A4D;
+  }
+}
+
+.dota-logo {
+  display: inline-block;
+  position: relative;
   max-height: 40px;
+
+  &:before {
+    content: "*";
+    position: absolute;
+    top: 0;
+    right: rem(-10);
+    font-size: rem(10);
+    color: #4A4A4D;
+  }
+
+  &:after {
+    content: "\00AE";  //®
+    position: absolute;
+    bottom: 0;
+    right: rem(-10);
+    font-size: rem(10);
+    color: #4A4A4D;
+  }
 }
 
 .plus-sign {
@@ -67,6 +130,17 @@
     background: no-repeat center url('../../../assets/img/profile.png');
     position: absolute;
     filter: brightness(4);
+  }
+
+  &-name {
+    font-size: rem(17);
+    font-weight: bold;
+  }
+
+  &-cash {
+    display: inline-block;
+    font-size: rem(14);
+    color: #999999;
   }
 
 }

@@ -28,9 +28,32 @@
   padding-top: rem(30);
   margin-top: rem(20);
 }
-.logo {
+.dota-logo {
   width: rem(92);
   height: rem(92);
+  position: relative;
+
+  & > img {
+    height: 100%;
+  }
+
+  &:before {
+    content: "*";
+    position: absolute;
+    top: 0;
+    right: rem(-10);
+    font-size: rem(10);
+    color: #686868;
+  }
+
+  &:after {
+    content: "®";
+    position: absolute;
+    bottom: 0;
+    right: rem(-10);
+    font-size: rem(10);
+    color: #686868;
+  }
 }
 
 .team-icon {
