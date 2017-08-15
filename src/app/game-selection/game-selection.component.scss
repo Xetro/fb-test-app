@@ -1,3 +1,140 @@
-p {
-  color: white;
+@import '../../assets/styles/style';
+
+.screen-title {
+  font-size: rem(24);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.game-title {
+  font-size: rem(18);
+  font-weight: 600;
+}
+
+.game-info {
+  font-size: rem(14);
+  color: #999999;
+  display: block;
+  line-height: rem(22);
+
+  &-highlight {
+    color: white;
+  }
+}
+
+.game-selection {
+  background-color: #242425;
+  padding-left: rem(30);
+  padding-top: rem(30);
+  margin-top: rem(20);
+}
+.logo {
+  width: rem(92);
+  height: rem(92);
+}
+
+.team-icon {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: rem(60);
+    height: rem(2);
+    background-color: #5D5D62;
+    left: calc(50% - #{rem(30)});
+    top: rem(17);
+    z-index: -1;
+  }
+}
+
+.option {
+  position: relative;
+  background-color: #2D2D2D;
+  text-align: center;
+  font-size: rem(18);
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: rem(180);
+      border-right: solid rem(1) #4A4A4A;
+      top: calc(50% - #{rem(70)});
+      right: 0;
+      opacity: 0.3;
+    }
+
+    &:last-child:after {
+      border: none;
+    }
+
+    &-icon {
+      margin: rem(30) 0;
+    }
+
+    &-tab {
+      height: rem(44);
+      background-color: #242425;
+      font-weight: 600;
+      padding: rem(11) rem(5);
+      position: relative;
+
+      & > * {
+        opacity: 0.3;
+      }
+    }
+
+    &-content {
+      padding: rem(50) 0;
+
+      & > * {
+        opacity: 0.3;
+      }
+    }
+
+    &-selected {
+
+      .option-tab {
+        	background-color: #2D2D2D;
+
+          & > * {
+            opacity: 1;
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            height: rem(5);
+            width: 100%;
+            left: 0;
+            bottom: rem(-5);
+            background-color: #FF9900;
+          }
+      }
+
+      .option-content > * {
+          opacity: 1;
+      }
+    }
+}
+
+
+.icon-info {
+  top: calc(50% - #{rem(5)});
+  font-size: rem(11);
+  font-weight: 600;
+  display: inline-block;
+  position: absolute;
+  left: rem(20);
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: rem(16);
+    height: rem(16);
+    border: 1px solid #FF9900;
+    border-radius: 50%;
+    left: calc(100% - #{rem(10)});
+    top: calc(100% - #{rem(16)});
+  }
 }
