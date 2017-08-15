@@ -1,0 +1,56 @@
+$gridName: grid !default;
+$colName: col !default;
+$gutter: 15px !default;
+$col-bottom: $gutter !default;
+$columns: 12;
+
+$xs: "screen and (max-width: 568px)" !default;
+$sm: "screen and (max-width: 768px)" !default;
+$md: "screen and (max-width: 1024px)" !default;
+$lg: "screen and (max-width: 1280px)" !default;
+
+$color-main: #0A100D;
+$color-accent: #902923;
+$color-third: #75756E;
+$color-bg: #171717;
+
+$font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-size: 16px !default;
+$font-color: $color-main !default;
+$body-bg: $color-bg !default;
+$line-height: 1.35 !default;
+
+$enable-rem: false;
+$rem-base: 16px !default;
+
+
+@mixin make-grid($grid) {
+    @for $i from 1 through $columns {
+        [class*="#{$grid}-#{$i}"] > .#{$colName}, [class*="#{$grid}-#{$i}"] > [class*="#{$colName}-"] {
+            flex-basis: #{($columns/($i*$columns))*100%};
+            max-width: #{($columns/($i*$columns))*100%};
+        }
+    }
+
+}
+
+@mixin make-columns($col) {
+    [class*='#{$gridName}'] {
+        @for $i from 1 through $columns {
+            > [class*="#{$col}-#{$i}"] {
+                flex-basis: #{(100%/$columns)*$i};
+                max-width: #{(100%/$columns)*$i};
+            }
+        }
+    }
+}
+
+@mixin make-offset($off) {
+    $b: ($columns - 1);
+    [class*="#{$gridName}"] {
+        @for $i from 0 through $b {
+            > [data-push-left*="#{$off}-#{$i}"] { margin-left: #{(100%/$columns)*$i}; }
+            > [data-push-right*="#{$off}-#{$i}"] { margin-left: #{(100%/$columns)*$i}; }
+        }
+    }
+}

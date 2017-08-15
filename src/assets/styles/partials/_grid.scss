@@ -1,0 +1,228 @@
+/* ==========================================================================
+    Flexbox Grid System
+========================================================================== */
+
+[class*="#{$gridName}"] {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 (-$gutter/2);
+}
+
+.#{$colName},
+[class*="#{$colName}-"] {
+    flex: 0 0 auto;
+    padding: 0 ($gutter/2) $col-bottom;
+}
+
+.#{$colName} {
+    flex: 1 1 0%;
+}
+
+.#{$gridName}.#{$colName},
+.#{$gridName}[class*="#{$colName}-"] {
+    margin: 0;
+    padding: 0
+}
+
+/************************
+    HELPERS SUFFIXES
+*************************/
+// FOR GRID
+[class*="#{$gridName}-"] {
+    // No spacing between cols : noGutter
+    &[class*="-noGutter"] {
+        margin: 0;
+        > [class*="#{$colName}"] {
+            padding: 0;
+        }
+    }
+
+    // No Wrapping
+    &[class*="-noWrap"] {
+        flex-wrap: nowrap;
+    }
+
+    // Horizontal alignment
+    &[class*="-center"] {
+        justify-content: center;
+    }
+    &[class*="-right"] {
+        justify-content: flex-end;
+        align-self: flex-end;
+        margin-left: auto;
+    }
+
+    // Vertical alignment
+    &[class*="-top"]{
+        align-items: flex-start;
+    }
+    &[class*="-middle"]{
+        align-items: center;
+    }
+    &[class*="-bottom"]{
+        align-items: flex-end;
+    }
+
+    // Orders
+    &[class*="-reverse"]{
+        flex-direction: row-reverse;
+    }
+    &[class*="-column"] {
+        flex-direction: column;
+        > [class*="#{$colName}-"] {
+            flex-basis: auto;
+        }
+    }
+    &[class*="-column-reverse"]{
+        flex-direction: column-reverse;
+    }
+
+    // Spaces between and around cols
+    &[class*="-spaceBetween"]{
+        justify-content: space-between;
+    }
+    &[class*="-spaceAround"]{
+        justify-content: space-around;
+    }
+    &[class*="-equalHeight"] > [class*="#{$colName}"] {
+        display: flex;
+        flex-wrap: wrap;
+        > * {
+            flex: 1 0 100%;
+        }
+    }
+    &[class*="-noBottom"] > [class*="#{$colName}"] {
+        padding-bottom: 0;
+    }
+}
+
+/************************
+    COLS SIZES
+*************************/
+[class*="#{$colName}-"] {
+    &[class*="-top"] {
+        align-self: flex-start;
+    }
+    &[class*="-middle"]{
+        align-self: center;
+    }
+    &[class*="-bottom"]{
+        align-self: flex-end;
+    }
+    &[class*="-first"]{
+        order: -1;
+    }
+    &[class*="-last"]{
+        order: 1;
+    }
+}
+
+/************************
+    GRID BY NUMBER
+*************************/
+@include make-grid(#{$gridName});
+
+@media #{$lg}{
+    @include make-grid(_lg);
+}
+@media #{$md}{
+    @include make-grid(_md);
+}
+@media #{$sm}{
+    @include make-grid(_sm);
+}
+@media #{$xs}{
+    @include make-grid(_xs);
+}
+
+/************************
+    COLS SIZES
+*************************/
+@include make-columns(#{$colName});
+@include make-offset(off);
+
+@media #{$lg}{
+    @include make-columns(_lg);
+    @include make-offset(_lg);
+}
+@media #{$md}{
+    @include make-columns(_md);
+    @include make-offset(_md);
+}
+@media #{$sm}{
+    @include make-columns(_sm);
+    @include make-offset(_sm);
+}
+@media #{$xs}{
+    @include make-columns(_xs);
+    @include make-offset(_xs);
+}
+
+/************************
+    HIDING COLS
+*************************/
+[class*="#{$colName}-"]:not([class*="#{$colName}-0"]) {
+    display: block;
+}
+[class*="#{$gridName}"][class*="#{$colName}-"]:not([class*="#{$colName}-0"]) {
+    display: flex;
+}
+[class*="#{$colName}-"][class*="#{$colName}-0"] {
+    display: none;
+}
+@media #{$lg} {
+    [class*="#{$gridName}"] {
+        > :not([class*="_lg-0"]) {
+            display: block;
+        }
+        &:not([class*="_lg-0"]) {
+            display: flex;
+        }
+        >[class*="_lg-0"],
+        &[class*="-equalHeight"] > [class*="_lg-0"] {
+            display: none;
+        }
+    }
+}
+@media #{$md} {
+    [class*="#{$gridName}"] {
+        > :not([class*="_md-0"]) {
+            display: block;
+        }
+        &:not([class*="_md-0"]) {
+            display: flex;
+        }
+        >[class*="_md-0"],
+        &[class*="-equalHeight"] > [class*="_md-0"] {
+            display: none;
+        }
+    }
+}
+@media #{$sm} {
+    [class*="#{$gridName}"] {
+        > :not([class*="_sm-0"]) {
+            display: block;
+        }
+        &:not([class*="_sm-0"]) {
+          display: flex;
+        }
+        >[class*="_sm-0"],
+        &[class*="-equalHeight"] > [class*="_sm-0"] {
+            display: none;
+        }
+    }
+}
+@media #{$xs} {
+    [class*="#{$gridName}"] {
+        > :not([class*="_xs-0"]) {
+            display: block;
+        }
+        &:not([class*="_xs-0"]) {
+            display: flex;
+        }
+        >[class*="_xs-0"],
+        &[class*="-equalHeight"] > [class*="_xs-0"] {
+            display: none;
+        }
+    }
+}

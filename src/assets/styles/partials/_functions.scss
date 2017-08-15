@@ -1,0 +1,52 @@
+@function strip-unit($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+//covert px to rem
+@function convert-to-rem($value, $base-value: $rem-base) {
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+
+    @if ($value == 0rem) {
+        $value: 0;
+    }
+
+    @return $value;
+}
+
+//Convert value to px
+@function convert-to-px($value) {
+    $value: strip-unit($value) * 1px;
+
+    @if ($value == 0px) {
+        $value: 0;
+    }
+
+    @return $value;
+}
+
+//main rem to px function
+@function rem($values, $base-value: $rem-base) {
+    $max: length($values);
+
+    @if $max == 1 {
+        @if $enable-rem {
+            @return convert-to-rem(nth($values, 1), $base-value);
+        }
+        @else {
+            @return convert-to-px($values);
+        }
+    }
+
+    $remValues: ();
+
+    @for $i from 1 through $max {
+        @if $enable-rem {
+            $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+        }
+        @else {
+            $remValues: append($remValues, convert-to-px(nth($values, $i)));
+        }
+    }
+
+    @return $remValues;
+}

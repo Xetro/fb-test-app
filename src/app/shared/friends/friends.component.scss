@@ -1,0 +1,33 @@
+@import '../../../assets/styles/style';
+
+.friends {
+  background-color: #242425;
+  color: white;
+  font-size: rem(14);
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+
+  &-heading {
+    background-color: #D2D2D2;
+    color: #171717;
+  }
+}
+
+.profile-img {
+  width: rem(32);
+  height: rem(32);
+  background-color: red;
+  display: inline-block;
+}
+
+.name {
+  color: #D2D2D2;
+  font-size: rem(14);
+}
+
+.online {
+  width: rem(10);
+  height: rem(10);
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}

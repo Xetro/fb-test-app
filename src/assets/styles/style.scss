@@ -1,0 +1,36 @@
+@import "partials/normalize";
+@import "partials/config";
+
+
+*,
+*:before,
+*:after,
+input[type="search"] {
+    box-sizing: border-box;
+}
+
+a:active, button {
+    outline: none;
+}
+
+@import "partials/functions";
+@import "partials/grid";
+
+body {
+    font-family: #{$font-family};
+    font-size: #{$font-size};
+    background: #{$body-bg};
+    line-height: #{$line-height};
+    height: 100%;
+    color: $font-color;
+    font-weight: 300;
+}
+
+html {
+    height: 100%;
+    margin-right: 0 !important;
+
+    // Force subpixel antialiasing on whole document, to prevent problems with Safari
+    // changing font antialiasing after triggering an animation
+    -webkit-font-smoothing: subpixel-antialiased;
+}

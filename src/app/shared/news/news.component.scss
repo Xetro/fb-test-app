@@ -1,0 +1,17 @@
+@import '../../../assets/styles/style';
+
+.news {
+  background-color: #242425;
+  color: white;
+  font-size: rem(14);
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+
+  &-heading {
+    background-color: #D2D2D2;
+    color: #171717;
+  }
+
+  &-date {
+    color: #999999;
+  }
+}
