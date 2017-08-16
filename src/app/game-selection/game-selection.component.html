@@ -10,7 +10,7 @@
       <span class="game-info">Buy-in: <span class="game-info-highlight">100PT</span></span>
       <span class="game-info">Match type: <span class="game-info-highlight">5 V 5</span></span>
     </div>
-    <div class="col option option-selected">
+    <div class="col option option-selected" (click)="selectMode($event)">
       <div class="option-tab">
         <div class="icon-info">i</div>
         <span>QUEUE</span>
@@ -20,10 +20,10 @@
         <div class="option-icon">
           <img src="./assets/img/profile.png" class="" alt="">
         </div>
-        <div class="btn">JOIN QUEUE</div>
+        <div class="btn" (click)="joinQueue()">JOIN QUEUE</div>
       </div>
     </div>
-    <div class="col option">
+    <div class="col option"  (click)="selectMode($event)">
       <div class="option-tab">
         <div class="icon-info">i</div>
         <span>VERSUS</span>
@@ -38,7 +38,7 @@
         <div class="btn">SELECT PARTY</div>
       </div>
     </div>
-    <div class="col option">
+    <div class="col option"  (click)="selectMode($event)">
       <div class="option-tab">
         <div class="icon-info">i</div>
         <span>TOURNAMENT</span>
