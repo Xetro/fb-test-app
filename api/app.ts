@@ -74,7 +74,6 @@ server.listen(app.get('port'), () => {
 });
 
 setInterval(() => {
-  console.log(wsServer.clients.size);
 	if (wsServer.clients.size > 1 && playersSearching.length > 1) {
     _.each(playersSearching, (player) => {
       let otherPlayers = _.without(playersSearching, player);

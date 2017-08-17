@@ -11,10 +11,10 @@
       <span class="game-info">Match type: <span class="game-info-highlight">5 V 5</span></span>
     </div>
     <div class="col-9 col-border grid">
-      <div class="col-bottom">
+      <div class="col">
         <img src="./assets/img/matchmaking-bg.png" alt="">
       </div>
-      <div class="content col-top">
+      <div class="content col">
         <span class="content-status">{{status}}</span>
         <span class="content-message">{{message}}<span *ngIf="this.matchmakingService.searching" class="content-time">{{searchTimer}}</span></span>
         <span *ngIf="!this.matchmakingService.searching" class="content-time">{{matchTimer}}</span>
