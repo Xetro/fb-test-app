@@ -16,9 +16,9 @@
       </div>
       <div class="content col-top">
         <span class="content-status">{{status}}</span>
-        <span class="content-message">{{message}}<span *ngIf="this.appService.searching" class="content-time">{{searchTimer}}</span></span>
-        <span *ngIf="!this.appService.searching" class="content-time">{{matchTimer}}</span>
-        <div *ngIf="this.appService.searching" class="content-tips">
+        <span class="content-message">{{message}}<span *ngIf="this.matchmakingService.searching" class="content-time">{{searchTimer}}</span></span>
+        <span *ngIf="!this.matchmakingService.searching" class="content-time">{{matchTimer}}</span>
+        <div *ngIf="this.matchmakingService.searching" class="content-tips">
           <span class="content-tips-title">Did you know …</span>
           <span>Keep a TP. Always. Atleast past the laning phase , when the game shifts into tower takedowns and mass rotations. Town Portal Scrolls are a game changing item. They help you get out of tricky situations. They help you get into ganks to demolish the other team.</span>
         </div>
@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="buttons">
-    <div (click)="this.appService.cancel()" class="btn btn-gray btn-cancel">CANCEL</div>
-    <div *ngIf="!this.appService.searching" (click)="confirmMatch()" class="btn btn btn-confirm">CONFIRM</div>
+    <div (click)="this.matchmakingService.cancel()" class="btn btn-gray btn-cancel">CANCEL</div>
+    <div *ngIf="!this.matchmakingService.searching" (click)="confirmMatch()" class="btn btn btn-confirm">CONFIRM</div>
   </div>
 </div>

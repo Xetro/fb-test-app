@@ -1,32 +1,61 @@
 <div class="match-end">
-  <p class="screen-title">MATCHMAKING</p>
   <div class="grid-noGutters">
-    <div class="col-3 col-border">
-      <div class="dota-logo">
-        <img src="./assets/img/dota-logo-large.png" class="" alt="">
+    <div class="col-12 grid-noGutters top">
+      <div class="col-3 left">
+        <span class="left-big">MATCH</span>
+        <span class="left-small">Game mode: <span class="left-highlight">Captains pick</span></span>
+        <span class="left-small">Server: <span class="left-highlight">EU_24</span></span>
+        <a href="/" class="left-link">Match rules</a>
       </div>
-      <p class="game-title">DOTA 2</p>
-      <span class="game-info">Players in queue: <span class="game-info-highlight">456</span></span>
-      <span class="game-info">Buy-in: <span class="game-info-highlight">100PT</span></span>
-      <span class="game-info">Match type: <span class="game-info-highlight">5 V 5</span></span>
+      <div class="col-6 center">
+        <span class="center center-big">THE ANIHILATORS WIN</span>
+        <span class="center center-small">Radiant Victory</span>
+      </div>
+      <div class="col-3 right">
+        <span class="right-small">Buy-in per user: <span class="right-highlight">100 PT</span></span>
+        <span class="right-small">Reward per user: <span class="right-highlight">200 PT</span></span>
+        <span class="right-small">Match time: <span class="right-highlight">38:52</span></span>
+      </div>
     </div>
-    <div class="col-9 col-border grid">
-      <div class="col-bottom">
-        <img src="./assets/img/matchmaking-bg.png" alt="">
-      </div>
-      <div class="content col-top">
-        <span class="content-status">{{status}}</span>
-        <span class="content-message">{{message}}<span *ngIf="this.appService.searching" class="content-time">{{searchTimer}}</span></span>
-        <span *ngIf="!this.appService.searching" class="content-time">{{matchTimer}}</span>
-        <div *ngIf="this.appService.searching" class="content-tips">
-          <span class="content-tips-title">Did you know …</span>
-          <span>Keep a TP. Always. Atleast past the laning phase , when the game shifts into tower takedowns and mass rotations. Town Portal Scrolls are a game changing item. They help you get out of tricky situations. They help you get into ganks to demolish the other team.</span>
+    <div class="col-6">
+      <div class="middle">
+        <span class="middle-big">Radiant</span>
+        <span class="middle-small">Radiant</span>
+        <div class="middle-tag">
+          <div class="middle-tag-img">
+            <img src="./assets/img/profile.png" class="profile-img" alt="">
+          </div>
+          <div class="middle-tag-profile">
+            <span class="name">King Slayer</span>
+            <img src="./assets/img/message-bubble.png" class="icon" alt="">
+            <img src="./assets/img/add-friend.png" class="icon" alt="">
+          </div>
+          <div class="btn btn-gray middle-tag-badge">CAPTAIN</div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="buttons">
-    <div (click)="this.appService.cancel()" class="btn btn-gray btn-cancel">CANCEL</div>
-    <div *ngIf="!this.appService.searching" (click)="confirmMatch()" class="btn btn btn-confirm">CONFIRM</div>
+    <div class="col-6 text-right">
+      <div class="middle">
+        <span class="middle-big">Radiant</span>
+        <span class="middle-small">Radiant</span>
+        <div class="middle-tag">
+          <div class="btn btn-gray middle-tag-badge badge-right">CAPTAIN</div>
+          <div class="middle-tag-profile right">
+            <span class="name">King Slayer</span>
+            <img src="./assets/img/message-bubble.png" class="icon" alt="">
+            <img src="./assets/img/add-friend.png" class="icon" alt="">
+          </div>
+          <div class="middle-tag-img">
+            <img src="./assets/img/profile.png" class="profile-img" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      SCOREBOARD
+      <div class="scoreboard">
+          Scoreboard will be available once the match has ended.
+      </div>
+    </div>
   </div>
 </div>

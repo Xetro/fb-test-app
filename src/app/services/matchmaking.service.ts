@@ -20,7 +20,7 @@ export class MatchmakingService {
 
   private apiUrl = 'api/queue/join';
   // private headers = new HttpHeaders({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
-  
+
 	public searching: Boolean;
   public messages: Subject<Message> = new Subject<Message>();
 	public matchFound: Subject<any> = new Subject<any>();
@@ -30,59 +30,61 @@ export class MatchmakingService {
 		private http: HttpClient,
 		private wsService: WebsocketService,
 		private router: Router
-	) { 
+	) {
     this.messages = <Subject<Message>>this.wsService
       .connect('ws://localhost:3000')
       .map((response: any): Message => {
         let data = JSON.parse(response.data);
-        
+
         return {
           title: data.title,
           body: data.body,
         }
       });
-			
+
 		this.messages.subscribe((message) => {
-			this.handleServerResponse(message);
+			this.handleServerCommunication(message);
 		});
   }
 
-    
+
   callAPI(message): Promise<any> {
 		this.messages.next(message);
 		return Promise.resolve('success');
   };
-	
+
 	joinQueue(): Promise<any> {
 		let message: Message = {
 			title: 'JOIN_QUEUE_REQ',
 			body: {}
 		};
-		
+
 		return this.callAPI(message).then((resp) => console.log('response', resp));
 	};
-	
+
 	public confirmMatch(): Promise<any> {
 		let message: Message = {
 			title: 'MATCH_CONFIRM',
 			body: {}
 		};
-		
+
 		return this.callAPI(message);
 	}
-	
-	public cancel() {
+
+	public cancel(sendMessage=true) {
+
 		let message: Message = {
 			title: 'CANCEL_MATCH',
 			body: {}
 		}
-		
-		this.messages.next(message);
+
+		if (sendMessage)
+			this.messages.next(message);
 		this.searching = false;
 		this.router.navigate(['']);
 	}
-	
-	private handleServerResponse(message) {
+
+	private handleServerCommunication(message) {
 		switch (message.title) {
 			case 'JOIN_QUEUE_RES':
 				if (message.body.success) {
@@ -91,26 +93,26 @@ export class MatchmakingService {
 					break;
 				}
 				break;
-				
+
 			case 'MATCH_FOUND':
 				this.searching = false;
 				this.matchFound.next();
 				break;
-				
+
 			case 'MATCH_ACCEPTED':
 				this.matchAccepted.next();
 				break;
-				
+
 			case 'MATCH_STARTING':
 				this.router.navigate(['/match-end']);
 				break;
-			
+
 			case 'MATCH_TIMEOUT':
-				this.cancel();
+				this.cancel(false);
 				break;
 		}
 	}
-		
+
   private handleError(error: any): Promise<any> {
     console.error('An error occured', error);
     return Promise.reject(error.message || error);

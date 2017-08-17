@@ -1,0 +1,145 @@
+@import '../../assets/styles/style';
+
+.match-end {
+  background-color: #242425;
+  padding: rem(30);
+  margin-top: rem(20);
+}
+
+.text-right {
+  text-align: right; 
+}
+
+.profile-img {
+  height: rem(36);
+  filter: brightness(1.3);
+}
+
+.badge-right {
+  right: auto!important;
+  left: rem(20);
+}
+
+.top {
+
+  border-bottom: solid rem(1) #4A4A4A;
+
+  .right {
+    text-align: right;
+  }
+
+  .left,
+  .right {
+
+    &-big {
+      display: block;
+      font-size: rem(24);
+      font-weight: 600;
+    }
+
+    &-small {
+      font-size: rem(14);
+      color: #999999;
+      display: block;
+    }
+
+    &-highlight {
+      font-size: rem(14);
+      color: #FFFFFF;
+    }
+
+    &-link {
+      font-size: rem(13);
+      color: #FF9900;
+    }
+  }
+
+  .center {
+    text-align: center;
+    display: block;
+
+    &-big {
+      font-size: rem(32);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    &-small {
+      font-size: rem(18);
+      font-weight: 600;
+      color: #999999;
+      margin-top: rem(10);
+    }
+  }
+
+}
+
+.middle {
+  padding: rem(20) 0;
+
+  &-big {
+    font-size: rem(18);
+    font-weight: 600;
+    display: block;
+  }
+  &-small {
+    margin-top: rem(10);
+    font-size: rem(14);
+    font-weight: 400;
+    color: #999999;
+    display: block;
+  }
+  &-tag {
+    position: relative;
+    margin-top: rem(20);
+    padding: rem(10);
+    background-color: #2D2D2D;
+    display: inline-block;
+
+    & > .right {
+      text-align: right;
+      margin-left: 0;
+      margin-right: rem(10);
+    }
+
+    &-profile {
+      display: inline-block;
+      min-width: rem(200);
+      margin-left: rem(10);
+
+      & > .name {
+        display: block;
+        font-size: rem(14);
+      }
+
+      & > .icon {
+        margin-top: rem(15);
+        margin-left: rem(5)
+      }
+    }
+
+    &-badge {
+      position: absolute;
+      top: rem(40);
+      right: rem(20);
+      font-size: rem(7);
+      margin-top: rem(-30);
+      font-weight: 600;
+      padding: rem(1) rem(3);
+    	background: linear-gradient(180deg, #888790 0%, #555458 100%);
+    }
+
+    &-img {
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #D2D2D2 100%);
+      text-align: center;
+      padding: rem(11) 0;
+    }
+
+    &-badge {
+      display: inline-block;
+    }
+  }
+}
